@@ -21,11 +21,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="H1A-Gb-ZC9">
-                                <rect key="frame" x="16" y="40" width="343" height="97"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="H1A-Gb-ZC9">
+                                <rect key="frame" x="16" y="40" width="343" height="468"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aof-SS-LJj">
-                                        <rect key="frame" x="0.0" y="0.0" width="86.5" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aof-SS-LJj">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Xlz-8k-xoG"/>
                                         </constraints>
@@ -42,63 +42,51 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N04-pf-tkw">
-                                        <rect key="frame" x="0.0" y="67" width="151" height="30"/>
-                                        <state key="normal" title="Set Default Label Text"/>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="EP9-HS-DDg">
+                                        <rect key="frame" x="0.0" y="67" width="343" height="343"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="343" id="Ls2-tz-5mQ"/>
+                                            <constraint firstAttribute="width" constant="343" id="zc9-g4-lCv"/>
+                                        </constraints>
                                         <connections>
-                                            <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nSc-wl-wFN"/>
+                                            <outletCollection property="gestureRecognizers" destination="Uo4-OP-UNJ" appends="YES" id="LAN-Fz-Jrm"/>
                                         </connections>
-                                    </button>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="left" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CvA-Of-vz8" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
+                                        <rect key="frame" x="55.5" y="418" width="232" height="50"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                                <size key="value" width="40" height="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="pVU-ml-Ijt" firstAttribute="top" secondItem="aof-SS-LJj" secondAttribute="bottom" constant="8" id="0Kp-N5-Aif"/>
+                                    <constraint firstAttribute="trailing" secondItem="aof-SS-LJj" secondAttribute="trailing" id="Sn8-KR-48R"/>
                                     <constraint firstAttribute="trailing" secondItem="pVU-ml-Ijt" secondAttribute="trailing" id="a75-BD-BV4"/>
                                     <constraint firstItem="pVU-ml-Ijt" firstAttribute="leading" secondItem="H1A-Gb-ZC9" secondAttribute="leading" id="wSE-Iv-Y63"/>
                                 </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="EP9-HS-DDg">
-                                <rect key="frame" x="16" y="145" width="343" height="343"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="343" id="Ls2-tz-5mQ"/>
-                                    <constraint firstAttribute="width" constant="343" id="zc9-g4-lCv"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Uo4-OP-UNJ" appends="YES" id="LAN-Fz-Jrm"/>
-                                </connections>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="left" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CvA-Of-vz8" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
-                                <rect key="frame" x="16" y="496" width="232" height="44"/>
-                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="etr-1H-Tws"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="starSize">
-                                        <size key="value" width="40" height="40"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="starCount">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="CvA-Of-vz8" firstAttribute="top" secondItem="EP9-HS-DDg" secondAttribute="bottom" constant="8" id="3Pg-MO-1Id"/>
-                            <constraint firstItem="CvA-Of-vz8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="HDL-Aj-Fn8"/>
                             <constraint firstItem="H1A-Gb-ZC9" firstAttribute="top" secondItem="rV1-dF-ATN" secondAttribute="bottom" constant="20" id="d8W-Vn-Kwx"/>
                             <constraint firstItem="H1A-Gb-ZC9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ei4-pO-sLk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="H1A-Gb-ZC9" secondAttribute="trailing" id="g5c-kV-tAP"/>
-                            <constraint firstItem="EP9-HS-DDg" firstAttribute="leading" secondItem="CvA-Of-vz8" secondAttribute="leading" id="ioT-ti-Wnc"/>
-                            <constraint firstItem="EP9-HS-DDg" firstAttribute="top" secondItem="H1A-Gb-ZC9" secondAttribute="bottom" constant="8" symbolic="YES" id="ruW-m8-glU"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="aof-SS-LJj" id="qnF-Gf-y6c"/>
                         <outlet property="nameTextField" destination="pVU-ml-Ijt" id="lnh-bp-84X"/>
                         <outlet property="photoImageView" destination="EP9-HS-DDg" id="JEp-K2-dgO"/>
+                        <outlet property="ratingControl" destination="CvA-Of-vz8" id="5iF-In-oVb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
