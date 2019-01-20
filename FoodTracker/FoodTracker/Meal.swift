@@ -17,11 +17,17 @@ class Meal {
     
     // MARK: Initializiation
     init?(name: String, photo: UIImage?, rating: Int) {
-        // Fail if invalid values were given
-        if (name.isEmpty || rating < 0) {
+        // Name must not be empty
+        guard !name.isEmpty else {
             return nil
         }
         
+        // Rating must be between 0 and 5 inclusive
+        guard (rating >= 0) && (rating <= 5) else {
+            return nil
+        }
+        
+        // Initialize properties
         self.name = name
         self.photo = photo
         self.rating = rating
