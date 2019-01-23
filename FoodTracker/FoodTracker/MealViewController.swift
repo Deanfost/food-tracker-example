@@ -31,6 +31,14 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         
         // Enable the "save" button iff the text field has a valid name
         updateSaveButtonState()
+        
+        // Init the UI if editing an existing meal
+        if let meal = meal {
+            navigationItem.title = meal.name
+            nameTextField.text   = meal.name
+            photoImageView.image = meal.photo
+            ratingControl.rating = meal.rating
+        }
     }
     
     // MARK: UITextFieldDelegate
@@ -99,8 +107,18 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        // Dismiss the modal and return
-        dismiss(animated: true, completion: nil)
+        // Check which way the scene was presented
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddMealMode {
+            // This ViewController is in its own NavigationController (presented modally)
+            dismiss(animated: true, completion: nil)
+        } else if let owningNavigationController = navigationController {
+            // This ViewController has been added to the stack of another NavigationController
+            owningNavigationController.popViewController(animated: true)
+        } else {
+            fatalError("The MealViewController is not inside of a NavigationController")
+        }
     }
     
     // MARK: Private Methods
